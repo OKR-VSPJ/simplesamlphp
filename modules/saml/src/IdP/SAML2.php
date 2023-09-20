@@ -591,11 +591,10 @@ class SAML2
     /**
      * Send a logout response.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \SimpleSAML\IdP $idp The IdP we are sending a logout request from.
      * @param array           &$state The logout state array.
      */
-    public static function sendLogoutResponse(Request $request, IdP $idp, array $state): Response
+    public static function sendLogoutResponse(IdP $idp, array $state): Response
     {
         Assert::keyExists($state, 'saml:RelayState'); // Can be NULL.
         Assert::notNull($state['saml:SPEntityId']);

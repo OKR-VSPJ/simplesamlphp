@@ -467,7 +467,7 @@ class IdP
     public function finishLogout(array &$state): Response
     {
         Assert::notNull($state['Responder']);
-        return call_user_func($state['Responder'], $state);
+        return call_user_func($state['Responder'], $this, $state);
     }
 
 
